@@ -47,4 +47,7 @@ config.yaml
 # Uncomment the following if you don't want temporary test output files
 # tests/__pycache__/
 
-# No ignore for data, metadata, and downloads folders (keep these in repo)
+# No ignore for data, metadata folders (keep these in repo)
+# except for: temporary Excel file (in data folder) and downloaded files (in downloads folder)
+../data/~.xlsx
+../downloads/
