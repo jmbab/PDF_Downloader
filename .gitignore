@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore __pycache__ specifically in src
+src/__pycache__/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# VSCode settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Python specific cache
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.pid
+*.out
+
+# OS generated files
+.DS_Store
+Thumbs.db
+.idea/
+
+# Environment variable files
+.env
+*.env
+
+# Ignore any user configuration or output files
+config.yaml
+*.bak
+*.old
+
+# Uncomment the following if you don't want temporary test output files
+# tests/__pycache__/
+
+# No ignore for data, metadata, and downloads folders (keep these in repo)
