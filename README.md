@@ -40,7 +40,7 @@ project/
 │   └── Metadata2024.xlsx      # Metadata file tracking download statuses
 │
 ├── src/
-│   ├── pycache/	           # Compiled Python files
+│   ├── pycache/	       # Compiled Python files
 │   ├── download_pdf.py        # Module to handle PDF downloads
 │   ├── load_excel.py          # Module to load the source Excel file
 │   ├── main.py                # Main script orchestrating the workflow
