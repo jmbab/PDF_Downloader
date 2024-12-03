@@ -32,6 +32,7 @@ project/
 │
 ├── data/
 │   └── GRI_2017_2020.xlsx     # Source Excel file with URLs and BRnum entries
+│   └── test.xlsx              # Lightweight Excel file used for testing
 │
 ├── downloads/
 │   └── ...                    # Folder where downloaded PDFs will be stored
@@ -40,7 +41,7 @@ project/
 │   └── Metadata2024.xlsx      # Metadata file tracking download statuses
 │
 ├── src/
-│   ├── pycache/	       # Compiled Python files
+│   ├── __pycache__/           # Compiled Python files
 │   ├── download_pdf.py        # Module to handle PDF downloads
 │   ├── load_excel.py          # Module to load the source Excel file
 │   ├── main.py                # Main script orchestrating the workflow
@@ -48,7 +49,19 @@ project/
 │   ├── update_metadata.py     # Metadata update management
 │   └── validate_urls.py       # URL validation module
 │
-└── venv/                      # Virtual environment for dependencies
+├── tests/
+│   ├── test_download_pdf.py   # Tests for the download_pdf module
+│   ├── test_placeholder.py    # Placeholder test file
+│   ├── test_update_metadata.py# Tests for the update_metadata module
+│   └── test_validate_urls.py  # Tests for the validate_urls module
+│
+├── venv/                      # Virtual environment for dependencies
+│
+├── .gitignore                 # Git ignored files configuration
+├── LICENSE                    # Project license
+├── README.md                  # Project documentation
+├── pytest.ini                 # Pytest configuration file
+└── requirements.txt           # Python dependencies
 ```
 
 ## Installation
