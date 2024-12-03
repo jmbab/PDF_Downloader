@@ -22,7 +22,7 @@ def test_download_pdf_success(mock_get):
 
     url = "https://example.com/sample.pdf"  # Placeholder URL
     brnum = "BR0001"
-    download_folder = "../downloads"
+    download_folder = "downloads"
 
     result = download_pdf(url, brnum, download_folder)
     assert result == "Downloaded"
@@ -41,7 +41,7 @@ def test_download_pdf_failure(mock_get):
 
     url = "https://invalid-url.com/sample.pdf"
     brnum = "BR0002"
-    download_folder = "../downloads"
+    download_folder = "downloads"
 
     result = download_pdf(url, brnum, download_folder)
     assert result == "Not downloaded"

@@ -4,7 +4,7 @@ from update_metadata import update_metadata
 import os
 
 # Path to your test metadata file
-metadata_file_path = "../metadata/Metadata2024.xlsx"
+metadata_file_path = "metadata/Metadata2024.xlsx"  # Relative to the repository root
 
 @pytest.fixture
 def setup_metadata():

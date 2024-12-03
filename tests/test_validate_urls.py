@@ -4,7 +4,7 @@ from validate_urls import validate_url, get_valid_url
 import pandas as pd
 
 # Path to your lightweight test file
-excel_file_path = "../data/test.xlsx"
+excel_file_path = "data/test.xlsx"  # Relative to the repository root
 
 @pytest.fixture
 def sample_data():
