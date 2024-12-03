@@ -27,6 +27,7 @@ The purpose of this project is to:
 
 ## Project Structure
 
+```
 project/
 │
 ├── data/
@@ -39,7 +40,7 @@ project/
 │   └── Metadata2024.xlsx      # Metadata file tracking download statuses
 │
 ├── src/
-│   ├── __pycache__/           # Compiled Python files
+│   ├── pycache/	           # Compiled Python files
 │   ├── download_pdf.py        # Module to handle PDF downloads
 │   ├── load_excel.py          # Module to load the source Excel file
 │   ├── main.py                # Main script orchestrating the workflow
@@ -48,6 +49,7 @@ project/
 │   └── validate_urls.py       # URL validation module
 │
 └── venv/                      # Virtual environment for dependencies
+```
 
 ## Installation
 
