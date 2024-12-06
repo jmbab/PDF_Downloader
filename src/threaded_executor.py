@@ -36,31 +36,41 @@ def run_threaded_execution(df, download_folder, metadata_file_path, primary_col,
                 # Get the result from the thread and collect it
                 result = future.result()
                 results.append(result)
-                print(f"Row {row[brnum_col]} processed with result: {result[1]}")
+                print(f"Row {row.name} with BRnum {row[brnum_col]} processed with result: {result[1]}")
             except Exception as e:
-                print(f"Error processing row {row[brnum_col]}: {e}")
+                print(f"Error processing row {row.name} with BRnum {row[brnum_col]}: {e}")
 
+    # Sort results by BRnum for consistency
+    results.sort(key=lambda x: x[0])  # Sort by BRnum
     return results
+
 
 # Function to process each row and update metadata
 def process_row(row, download_folder, primary_col, alternative_col, brnum_col, metadata_file_path):
-    brnum = row[brnum_col]
-    print(f"Processing BRnum {brnum}...")
-
-    # Validate the URL and attempt download
-    url = get_valid_url(row, primary_col, alternative_col)
-    if url:
-        print(f"Valid URL found for BRnum {brnum}, initiating download...")
-        status = download_pdf(url, brnum, download_folder)
-    else:
-        status = "Not downloaded"
-        print(f"No valid URL found for BRnum {brnum}")
-
-    # Call update_metadata directly from the thread
     try:
+        brnum = row[brnum_col]
+        print(f"Processing row {row.name} with BRnum {brnum}...")
+
+        # Validate the URL and attempt download
+        url = get_valid_url(row, primary_col, alternative_col)
+        if url:
+            print(f"Valid URL found for BRnum {brnum}, initiating download...")
+            status = download_pdf(url, brnum, download_folder)
+        else:
+            status = "Not downloaded"
+            print(f"No valid URL found for BRnum {brnum}")
+
+        # Safely update metadata with locking
         update_metadata(brnum, status, metadata_file_path)
         print(f"Metadata updated for BRnum {brnum} with status '{status}'")
+
+    except KeyError as e:
+        print(f"Key error processing row {row.name}: {e}")
+        status = "KeyError"
+
     except Exception as e:
-        print(f"Error updating metadata for BRnum {brnum}: {e}")
+        print(f"Error processing BRnum {row.get(brnum_col, 'Unknown')}: {e}")
+        status = "Processing Error"
 
     return brnum, status
+
